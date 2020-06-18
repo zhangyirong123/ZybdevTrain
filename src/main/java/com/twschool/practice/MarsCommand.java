@@ -11,18 +11,26 @@ public class MarsCommand {
         this.marsLocation = initLocation;
     }
 
-    public void advance(String direction) {
-        if (direction.equals("N")) {
-            marsLocation.setY(marsLocation.getY() + 1);
-        }
-        if (direction.equals("W")) {
-            marsLocation.setX(marsLocation.getX() - 1);
-        }
-        if (direction.equals("S")) {
-            marsLocation.setY(marsLocation.getY() - 1);
-        }
-        if (direction.equals("E")) {
-            marsLocation.setX(marsLocation.getX() + 1);
+    //先注释掉 尝试多态
+//    public void advance(String direction) {
+//        if (direction.equals("N")) {
+//            marsLocation.setY(marsLocation.getY() + 1);
+//        }
+//        if (direction.equals("W")) {
+//            marsLocation.setX(marsLocation.getX() - 1);
+//        }
+//        if (direction.equals("S")) {
+//            marsLocation.setY(marsLocation.getY() - 1);
+//        }
+//        if (direction.equals("E")) {
+//            marsLocation.setX(marsLocation.getX() + 1);
+//        }
+//    }
+    @Service
+    public class north implements direction {
+        @Override
+        public void say() {
+            System.out.println("北，Y+1");
         }
     }
 
