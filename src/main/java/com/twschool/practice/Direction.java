@@ -3,25 +3,47 @@ package com.twschool.practice;
 public enum Direction {
     N {
         @Override
-        public void move(MarsLocation location) {
-            location.setY(location.getY() + 1);
+        public Direction leftDirection() {
+            return W;
+        }
+
+        @Override
+        public Direction rightDirection() {
+            return E;
         }
     }, E {
         @Override
-        public void move(MarsLocation location) {
+        public Direction leftDirection() {
+            return N;
+        }
 
+        @Override
+        public Direction rightDirection() {
+            return S;
         }
     }, S {
         @Override
-        public void move(MarsLocation location) {
+        public Direction leftDirection() {
+            return E;
+        }
 
+        @Override
+        public Direction rightDirection() {
+            return W;
         }
     }, W {
         @Override
-        public void move(MarsLocation location) {
+        public Direction leftDirection() {
+            return S;
+        }
 
+        @Override
+        public Direction rightDirection() {
+            return N;
         }
     };
 
-    public abstract void move(MarsLocation location);
+    public abstract Direction leftDirection();
+
+    public abstract Direction rightDirection();
 }

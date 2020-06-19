@@ -12,7 +12,6 @@ public class MarsRover {
 
     MarsLocation getMarsLocation(String command) {
 
-
         Character[] commandList = ArrayUtils.toObject(command.toCharArray());
         for (Character singleCommand : commandList) {
             if ("M".equals(String.valueOf(singleCommand))) {

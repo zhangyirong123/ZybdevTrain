@@ -36,7 +36,7 @@ public class MarsRoverTest {
         //then
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
-        Assert.assertEquals(1, marslocation.getY());
+        Assert.assertEquals(initLocation.getY(), marslocation.getY());
         Assert.assertEquals(Direction.N, marslocation.getDirection());
     }
 
