@@ -1,31 +1,19 @@
 package com.twschool.practice;
 
+import static com.twschool.practice.Direction.*;
+
 public class MarsLocation {
 
-    private int x;
-    private int y;
+    private Coordinate coordinate;
     private Direction direction;
 
-    public MarsLocation(int x, int y, Direction direction) {
-        this.x = x;
-        this.y = y;
+    public MarsLocation(Coordinate coordinate, Direction direction) {
+        this.coordinate = coordinate;
         this.direction = direction;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public Coordinate getCoordinate() {
+        return coordinate;
     }
 
     public Direction getDirection() {
@@ -37,18 +25,10 @@ public class MarsLocation {
     }
 
     public void advance() {
-        if (direction.name().equals("N")) {
-            y++;
-        }
-        if (direction.name().equals("W")) {
-            x--;
-        }
-        if (direction.name().equals("S")) {
-            y--;
-        }
-        if (direction.name().equals("E")) {
-            x++;
-        }
+        if (direction.equals(N)) getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() + 1);
+        if (direction.equals(W)) getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() - 1);
+        if (direction.equals(S)) getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() - 1);
+        if (direction.equals(E)) getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() + 1);
     }
 
     public void turnLeft() {
