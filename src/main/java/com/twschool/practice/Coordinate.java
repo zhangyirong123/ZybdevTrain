@@ -1,5 +1,8 @@
 package com.twschool.practice;
 
+import static com.twschool.practice.Direction.*;
+import static com.twschool.practice.Direction.E;
+
 public class Coordinate {
 
     private int coordinateX;
@@ -26,20 +29,21 @@ public class Coordinate {
         this.coordinateY = coordinateY;
     }
 
-    public void addCoordinateX() {
-        coordinateX++;
+    public Coordinate getCoordinate() {
+        return this;
     }
 
-    public void minusCoordinateX() {
-        coordinateX--;
+    public void advance(Direction direction) {
+        if (direction.equals(N))
+            getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() + 1);
+        if (direction.equals(W))
+            getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() - 1);
+        if (direction.equals(S))
+            getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() - 1);
+        if (direction.equals(E))
+            getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() + 1);
+        return;
     }
 
-    public void addCoordinateY() {
-        coordinateY++;
-    }
-
-    public void minusCoordinateY() {
-        coordinateY--;
-    }
 
 }

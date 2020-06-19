@@ -1,7 +1,5 @@
 package com.twschool.practice;
 
-import static com.twschool.practice.Direction.*;
-
 public class MarsLocation {
 
     private Coordinate coordinate;
@@ -12,10 +10,6 @@ public class MarsLocation {
         this.direction = direction;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
     public Direction getDirection() {
         return direction;
     }
@@ -24,11 +18,8 @@ public class MarsLocation {
         this.direction = direction;
     }
 
-    public void advance() {
-        if (direction.equals(N)) getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() + 1);
-        if (direction.equals(W)) getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() - 1);
-        if (direction.equals(S)) getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() - 1);
-        if (direction.equals(E)) getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() + 1);
+    public void move() {
+        coordinate.advance(direction);
     }
 
     public void turnLeft() {

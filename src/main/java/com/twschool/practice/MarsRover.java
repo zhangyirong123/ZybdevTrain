@@ -15,7 +15,7 @@ public class MarsRover {
         Character[] commandList = ArrayUtils.toObject(command.toCharArray());
         for (Character singleCommand : commandList) {
             if ("M".equals(String.valueOf(singleCommand))) {
-                marsLocation.advance();
+                marsLocation.move();
             }
             if ("L".equals(String.valueOf(singleCommand))) {
                 marsLocation.turnLeft();
