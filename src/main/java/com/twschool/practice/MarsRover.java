@@ -16,11 +16,14 @@ public class MarsRover {
         Character[] commandList = ArrayUtils.toObject(command.toCharArray());
         for (Character singleCommand : commandList) {
             if ("M".equals(String.valueOf(singleCommand))) {
-                //调用前进
                 marsLocation.advance();
-            } else {
+            }
+            if ("L".equals(String.valueOf(singleCommand))) {
+                marsLocation.turnLeft();
+            }
+            if ("R".equals(String.valueOf(singleCommand))) {
                 //调用转向
-                marsLocation.veer(String.valueOf(singleCommand));
+                marsLocation.turnRight();
             }
         }
         return marsLocation;
