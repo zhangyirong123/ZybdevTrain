@@ -10,7 +10,7 @@ public class MarsRoverTest {
     @Test
     public void should_return_destination_x0_y0_directionN_when_given_x0_y0_directionN() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "";
         //when
@@ -27,7 +27,7 @@ public class MarsRoverTest {
     @Test
     public void should_return_destination_x0_y1_directionN_when_given_x0_y0_directionN_M() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "M";
         //when
@@ -37,13 +37,13 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(1, marslocation.getY());
-        Assert.assertEquals("N", marslocation.getDirection());
+        Assert.assertEquals(Direction.N, marslocation.getDirection());
     }
 
     @Test
     public void should_return_destination_x_negative1_y0_directionW_when_given_x0_y0_directionW_M() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "W");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.W);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "M";
         //when
@@ -53,13 +53,13 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(-1, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("W", marslocation.getDirection());
+        Assert.assertEquals(Direction.W, marslocation.getDirection());
     }
 
     @Test
     public void should_return_destination_x0_y_negative1_directionS_when_given_x0_y0_directionS_M() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "S");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.S);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "M";
         //when
@@ -69,13 +69,13 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(-1, marslocation.getY());
-        Assert.assertEquals("S", marslocation.getDirection());
+        Assert.assertEquals(Direction.S, marslocation.getDirection());
     }
 
     @Test
     public void should_return_destination_x1_y0_directionE_when_given_x0_y0_directionE_M() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "E");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.E);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "M";
         //when
@@ -85,13 +85,13 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(1, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("E", marslocation.getDirection());
+        Assert.assertEquals(Direction.E, marslocation.getDirection());
     }
 
     @Test
     public void should_return_destination_x0_y2_directionN_when_given_x0_y0_directionN_MM() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "MM";
 
@@ -102,7 +102,7 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(2, marslocation.getY());
-        Assert.assertEquals("N", marslocation.getDirection());
+        Assert.assertEquals(Direction.N, marslocation.getDirection());
     }
 
     //指令是M 前进 end
@@ -110,7 +110,7 @@ public class MarsRoverTest {
     @Test
     public void should_return_destination_X0_Y0_directionW_when_given_x0_y0_directionN_L_() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "L";
         //when
@@ -120,13 +120,13 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("W", marslocation.getDirection());
+        Assert.assertEquals(Direction.W, marslocation.getDirection());
     }
 
     @Test
     public void should_return_destination_x0_y0_directionS_when_given_x0_y0_directionN_LL() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "LL";
         //when
@@ -136,7 +136,7 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("S", marslocation.getDirection());
+        Assert.assertEquals(Direction.S, marslocation.getDirection());
     }
 
     //指令是L 左转 end
@@ -144,7 +144,7 @@ public class MarsRoverTest {
     @Test
     public void should_return_destination_x0_y0_directionE_when_given_x0_x0_directionN_R() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "R";
         //when
@@ -154,12 +154,12 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("E", marslocation.getDirection());
+        Assert.assertEquals(Direction.E, marslocation.getDirection());
     }
     @Test
     public void should_return_destination_x0_y0_directionS_when_given_x0_x0_directionN_RR() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "RR";
         //when
@@ -169,14 +169,14 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("S", marslocation.getDirection());
+        Assert.assertEquals(Direction.S, marslocation.getDirection());
     }
     //指令是R 右转 begin
     //作业场景 begin
     @Test
     public void should_return_destination_x0_y0_directionN_when_given_x0_y0_directionN_init() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "";
         //when
@@ -191,7 +191,7 @@ public class MarsRoverTest {
     @Test
     public void should_return_destination_x0_y4_directionN_when_given_x0_y0_directionN_MMMM() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "MMMM";
 
@@ -202,12 +202,12 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(4, marslocation.getY());
-        Assert.assertEquals("N", marslocation.getDirection());
+        Assert.assertEquals(Direction.N, marslocation.getDirection());
     }
     @Test
     public void should_return_destination_X0_Y0_directionW_when_given_x0_y0_directionN_L() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "L";
         //when
@@ -217,12 +217,12 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(0, marslocation.getX());
         Assert.assertEquals(0, marslocation.getY());
-        Assert.assertEquals("W", marslocation.getDirection());
+        Assert.assertEquals(Direction.W, marslocation.getDirection());
     }
     @Test
     public void should_return_destination_Xnegative1_Y1_directionN_when_given_x0_y0_directionN_MLMR() {
         //given
-        MarsLocation initLocation = new MarsLocation(0, 0, "N");
+        MarsLocation initLocation = new MarsLocation(0, 0, Direction.N);
         MarsRover marsRover = new MarsRover(initLocation);
         String Command = "MLMR";
         //when
@@ -232,7 +232,7 @@ public class MarsRoverTest {
         Assert.assertNotNull(marslocation);
         Assert.assertEquals(-1, marslocation.getX());
         Assert.assertEquals(1, marslocation.getY());
-        Assert.assertEquals("N", marslocation.getDirection());
+        Assert.assertEquals(Direction.N, marslocation.getDirection());
     }
     //作业场景 end
 

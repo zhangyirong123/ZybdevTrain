@@ -4,26 +4,25 @@ import org.apache.commons.lang.ArrayUtils;
 
 public class MarsRover {
 
-    private MarsLocation marslocation;
+    private MarsLocation marsLocation;
 
     MarsRover(MarsLocation initLocation) {
-        this.marslocation = initLocation;
+        this.marsLocation = initLocation;
     }
 
     MarsLocation getMarsLocation(String command) {
 
-        MarsCommand marsCommand = new MarsCommand(marslocation);
 
         Character[] commandList = ArrayUtils.toObject(command.toCharArray());
         for (Character singleCommand : commandList) {
             if ("M".equals(String.valueOf(singleCommand))) {
                 //调用前进
-                marsCommand.marsLocation.advance(marslocation.getDirection());
+                marsLocation.advance();
             } else {
                 //调用转向
-                marsCommand.marsLocation.veer(String.valueOf(singleCommand));
+                marsLocation.veer(String.valueOf(singleCommand));
             }
         }
-        return marslocation;
+        return marsLocation;
     }
 }
