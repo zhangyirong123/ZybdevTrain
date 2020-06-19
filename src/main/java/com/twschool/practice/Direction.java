@@ -43,6 +43,7 @@ public enum Direction {
         }
     };
 
+
     public abstract Direction leftDirection();
 
     public abstract Direction rightDirection();

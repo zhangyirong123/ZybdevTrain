@@ -35,14 +35,13 @@ public class Coordinate {
 
     public void advance(Direction direction) {
         if (direction.equals(N))
-            getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() + 1);
+            coordinateX++;
         if (direction.equals(W))
-            getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() - 1);
+            coordinateX--;
         if (direction.equals(S))
-            getCoordinate().setCoordinateY(getCoordinate().getCoordinateY() - 1);
+            coordinateY++;
         if (direction.equals(E))
-            getCoordinate().setCoordinateX(getCoordinate().getCoordinateX() + 1);
-        return;
+            coordinateY--;
     }
 
 
