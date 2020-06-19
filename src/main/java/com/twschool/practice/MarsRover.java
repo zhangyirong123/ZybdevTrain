@@ -18,10 +18,10 @@ public class MarsRover {
         for (Character singleCommand : commandList) {
             if ("M".equals(String.valueOf(singleCommand))) {
                 //调用前进
-                marsCommand.advance(marslocation.getDirection());
+                marsCommand.marsLocation.advance(marslocation.getDirection());
             } else {
                 //调用转向
-                marsCommand.veer(String.valueOf(singleCommand));
+                marsCommand.marsLocation.veer(String.valueOf(singleCommand));
             }
         }
         return marslocation;
