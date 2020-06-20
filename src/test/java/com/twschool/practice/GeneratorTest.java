@@ -12,6 +12,7 @@ public class GeneratorTest {
         //when
         String gameNumber = generator.getGameNumber();
         //then
+        System.out.println(gameNumber);
         assertNotNull(gameNumber);
     }
 
