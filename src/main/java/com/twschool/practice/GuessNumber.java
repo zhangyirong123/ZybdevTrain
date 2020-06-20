@@ -15,7 +15,7 @@ public class GuessNumber {
         this.gameNumberList = gameNumberList;
     }
 
-    public String checkResult(String userNumber) {
+    public String check(String userNumber) {
 
         int A = 0;
         int B = 0;
