@@ -20,7 +20,7 @@ public class GuessNumberMainTest {
 
     @Test
     public void Should_Return_Success_when_given_gameAnswer_1234_userAnswer_1234() {
-        //given
+        //give
         String userNumber = "1 2 3 4";
         GuessNumber guessNumber = new GuessNumber("1 2 3 4");
         GuessNumberMain guessNumberMain = new GuessNumberMain(guessNumber);
@@ -28,5 +28,20 @@ public class GuessNumberMainTest {
         String result = guessNumberMain.checkResult(userNumber);
         //then
         assertEquals("Success", result);
+    }
+
+    @Test
+    public void Should_Return_Fail_when_given_gameAnswer_1234_userAnswer_1324() {
+        //give
+        String userNumber = "1 3 2 4";
+        GuessNumber guessNumber = new GuessNumber("1 2 3 4");
+        GuessNumberMain guessNumberMain = new GuessNumberMain(guessNumber);
+        //when
+        String result = "";
+        for (int i = 0; i < 6; i++) {
+            result = guessNumberMain.checkResult(userNumber);
+        }
+        //then
+        assertEquals("Fail", result);
     }
 }
