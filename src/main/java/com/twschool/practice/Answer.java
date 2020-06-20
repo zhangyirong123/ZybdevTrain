@@ -5,11 +5,11 @@ import org.apache.commons.lang.ArrayUtils;
 import java.util.Arrays;
 import java.util.List;
 
-public class CheckAnswer {
+public class Answer {
 
     private List<String> gameNumberList;
 
-    public CheckAnswer(String gameNumber) {
+    public Answer(String gameNumber) {
 
         List<String> gameNumberList = Arrays.asList(gameNumber.split(" "));
         this.gameNumberList = gameNumberList;
@@ -28,6 +28,7 @@ public class CheckAnswer {
                 B++;
             }
         }
+        System.out.println(A + "A" + B + "B");
         return A + "A" + B + "B";
     }
 }

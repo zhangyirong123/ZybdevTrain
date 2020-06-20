@@ -12,9 +12,9 @@ public class GuessNumberWithGeneratorTest {
 
         Generator generator = new Generator();
         String gameNumber = generator.getGameNumber();
-        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
+        Answer answer = new Answer(gameNumber);
         String userNumber = "1 4 3 2";
-        GuessNumber guessNumber = new GuessNumber(checkAnswer);
+        GuessNumber guessNumber = new GuessNumber(answer);
         //when
         guessNumber.checkResult(userNumber);
         //then
@@ -27,9 +27,9 @@ public class GuessNumberWithGeneratorTest {
         //give
         Generator generator = new Generator();
         String gameNumber = generator.getGameNumber();
-        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
+        Answer answer = new Answer(gameNumber);
         String userNumber = gameNumber;
-        GuessNumber guessNumber = new GuessNumber(checkAnswer);
+        GuessNumber guessNumber = new GuessNumber(answer);
         //when
         guessNumber.checkResult(userNumber);
         //then
@@ -41,9 +41,9 @@ public class GuessNumberWithGeneratorTest {
         //give
         Generator generator = new Generator();
         String gameNumber = generator.getGameNumber();
-        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
+        Answer answer = new Answer(gameNumber);
         String userNumber = "1 4 3 2";
-        GuessNumber guessNumber = new GuessNumber(checkAnswer);
+        GuessNumber guessNumber = new GuessNumber(answer);
         //when
         guessNumber.checkResult(userNumber);
         guessNumber.checkResult(userNumber);
