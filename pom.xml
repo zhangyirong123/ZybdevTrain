@@ -7,11 +7,11 @@
     <version>1.0-SNAPSHOT</version>
     <name>checking-environment</name>
     <url>http://maven.apache.org</url>
-    
+
     <properties>
         <java.version>8</java.version>
     </properties>
-    
+
     <repositories>
         <repository>
             <id>maven-ali</id>
@@ -93,6 +93,19 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>com.twschool.practice.GuessNumberMain</mainClass> <!-- 此处为主入口-->
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
