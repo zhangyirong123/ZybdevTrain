@@ -4,25 +4,31 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GuessNumberTest {
+public class GuessNumberWithGeneratorTest {
 
     @Test
-    public void Should_Return_TryAgain_when_given_gameAnswer_1234_userAnswer_1432() {
+    public void Should_Return_TryAgain_when_given_Generator_userAnswer_1432() {
         //given
+
+        Generator generator = new Generator();
+        String gameNumber = generator.getGameNumber();
+        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
         String userNumber = "1 4 3 2";
-        CheckAnswer checkAnswer = new CheckAnswer("1 2 3 4");
         GuessNumber guessNumber = new GuessNumber(checkAnswer);
         //when
         guessNumber.checkResult(userNumber);
         //then
+        System.out.println(generator.getGameNumber());
         assertEquals(GameStatus.TryAgain, guessNumber.getGameStatus());
     }
 
     @Test
-    public void Should_Return_Success_when_given_gameAnswer_1234_userAnswer_1234() {
+    public void should_return_success_when_given_generator_userAnswer_Generator() {
         //give
-        String userNumber = "1 2 3 4";
-        CheckAnswer checkAnswer = new CheckAnswer("1 2 3 4");
+        Generator generator = new Generator();
+        String gameNumber = generator.getGameNumber();
+        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
+        String userNumber = gameNumber;
         GuessNumber guessNumber = new GuessNumber(checkAnswer);
         //when
         guessNumber.checkResult(userNumber);
@@ -33,8 +39,10 @@ public class GuessNumberTest {
     @Test
     public void Should_Return_Fail_when_given_gameAnswer_1234_userAnswer_1324() {
         //give
-        String userNumber = "1 3 2 4";
-        CheckAnswer checkAnswer = new CheckAnswer("1 2 3 4");
+        Generator generator = new Generator();
+        String gameNumber = generator.getGameNumber();
+        CheckAnswer checkAnswer = new CheckAnswer(gameNumber);
+        String userNumber = "1 4 3 2";
         GuessNumber guessNumber = new GuessNumber(checkAnswer);
         //when
         guessNumber.checkResult(userNumber);

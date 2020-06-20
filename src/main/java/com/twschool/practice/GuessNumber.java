@@ -1,33 +1,29 @@
 package com.twschool.practice;
 
-import org.apache.commons.lang.ArrayUtils;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class GuessNumber {
 
-    private List<String> gameNumberList;
+    private final int maxGuessTime = 6;
+    private CheckAnswer checkAnswer;
+    private GameStatus gameStatus = GameStatus.TryAgain;
+    private int residueTimes = maxGuessTime;
 
-    public GuessNumber(String gameNumber) {
-
-        List<String> gameNumberList = Arrays.asList(gameNumber.split(" "));
-        this.gameNumberList = gameNumberList;
+    public GuessNumber(CheckAnswer checkAnswer) {
+        this.checkAnswer = checkAnswer;
     }
 
-    public String check(String userNumber) {
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
 
-        int A = 0;
-        int B = 0;
+    public void checkResult(String userNumber) {
 
-        List<String> userNumberList = Arrays.asList(userNumber.split(" "));
-        for (int index = 0; index < userNumberList.size(); index++) {
-            if (userNumberList.get(index).equals(gameNumberList.get(index))) {
-                A++;
-            } else if (gameNumberList.contains(userNumberList.get(index))) {
-                B++;
-            }
+        if ("4A0B".equals(checkAnswer.check(userNumber))) {
+            this.gameStatus = GameStatus.Success;
+        } else {
+            residueTimes--;
         }
-        return A + "A" + B + "B";
+        if (residueTimes == 0) {
+            this.gameStatus = GameStatus.Fail;
+        }
     }
 }
