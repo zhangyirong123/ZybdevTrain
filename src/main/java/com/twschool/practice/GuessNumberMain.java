@@ -2,23 +2,28 @@ package com.twschool.practice;
 
 public class GuessNumberMain {
 
+    private final int maxGuessTime = 6;
     private GuessNumber guessNumber;
-    int maxGuessTime = 6;
+    private GameStatus gameStatus = GameStatus.TryAgain;
+    private int residueTimes = maxGuessTime;
 
     public GuessNumberMain(GuessNumber guessNumber) {
         this.guessNumber = guessNumber;
     }
 
-    public String checkResult(String userNumber) {
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
+    public void checkResult(String userNumber) {
 
         if ("4A0B".equals(guessNumber.check(userNumber))) {
-            return "Success";
+            this.gameStatus = GameStatus.Success;
         } else {
-            maxGuessTime--;
+            residueTimes--;
         }
-        if (maxGuessTime == 0) {
-            return "Fail";
+        if (residueTimes == 0) {
+            this.gameStatus = GameStatus.Fail;
         }
-        return "TryAgain";
     }
 }

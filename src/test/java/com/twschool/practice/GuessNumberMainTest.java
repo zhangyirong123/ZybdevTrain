@@ -13,9 +13,9 @@ public class GuessNumberMainTest {
         GuessNumber guessNumber = new GuessNumber("1 2 3 4");
         GuessNumberMain guessNumberMain = new GuessNumberMain(guessNumber);
         //when
-        String result = guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
         //then
-        assertEquals("TryAgain", result);
+        assertEquals(GameStatus.TryAgain, guessNumberMain.getGameStatus());
     }
 
     @Test
@@ -25,9 +25,9 @@ public class GuessNumberMainTest {
         GuessNumber guessNumber = new GuessNumber("1 2 3 4");
         GuessNumberMain guessNumberMain = new GuessNumberMain(guessNumber);
         //when
-        String result = guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
         //then
-        assertEquals("Success", result);
+        assertEquals(GameStatus.Success, guessNumberMain.getGameStatus());
     }
 
     @Test
@@ -37,11 +37,14 @@ public class GuessNumberMainTest {
         GuessNumber guessNumber = new GuessNumber("1 2 3 4");
         GuessNumberMain guessNumberMain = new GuessNumberMain(guessNumber);
         //when
-        String result = "";
-        for (int i = 0; i < 6; i++) {
-            result = guessNumberMain.checkResult(userNumber);
-        }
+        guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
+        guessNumberMain.checkResult(userNumber);
+
         //then
-        assertEquals("Fail", result);
+        assertEquals(GameStatus.Fail, guessNumberMain.getGameStatus());
     }
 }
